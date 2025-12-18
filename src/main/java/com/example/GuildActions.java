@@ -78,6 +78,20 @@ public class GuildActions {
 
         String guildName = StringArgumentType.getString(context, "name");
 
+        for(Guild g : state.getGuilds().values()) {
+            if(!g.getName().equals(guildName)) {
+                continue;
+            }
+            if(g.getOwner().equals(player.getName().getString())) {
+                context.getSource().sendFailure(Component.translatable("guild deleted!", guildName));
+                state.getGuilds().remove(guildName);
+                state.setDirty();
+                return 1;
+            }
+            context.getSource().sendFailure(Component.translatable("you need be owner to delete this guild!", guildName));
+            return 0;
+        }
+        context.getSource().sendFailure(Component.translatable("guild not found!", guildName));
         return 1;
     }
 
@@ -153,11 +167,22 @@ public class GuildActions {
             return 0;
         }
 
+
         try {
             ServerPlayer playerInvited = EntityArgument.getPlayer(context, "player_name");
             String playerInvitedName = playerInvited.getName().getString();
 
-            guild.getInvited().add(playerInvited.getName().getString());
+            if(guild.getMembers().contains(playerInvitedName)) {
+                context.getSource().sendFailure(Component.translatable(playerInvitedName + " already are member of this guild!"));
+                return 0;
+            }
+
+            if(guild.getInvited().contains(playerInvitedName)) {
+                context.getSource().sendFailure(Component.translatable(playerInvitedName + "already invited"));
+                return 0;
+            }
+
+            guild.getInvited().add(playerInvitedName);
             state.setDirty();
 
             context.getSource().sendSuccess(
@@ -165,8 +190,9 @@ public class GuildActions {
 
             return 1;
         } catch (CommandSyntaxException e) {
-
+            context.getSource().sendFailure(Component.translatable(e.getMessage()));
         }
+        context.getSource().sendFailure(Component.translatable("player not found!"));
         return 0;
     }
 }
