@@ -20,6 +20,7 @@ public class CreativeTab {
 
     public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModBlocks.TROPHY))
+            //.icon(() -> new ItemStack(ModBlocks.TROPHY2))
             .title(Component.translatable("itemGroup.example-mod"))
             .build();
 

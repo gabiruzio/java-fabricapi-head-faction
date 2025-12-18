@@ -17,6 +17,13 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
+    public static final Block TROPHY2 = register(
+            "trophy2",
+            Trophy::new,
+            BlockBehaviour.Properties.of().sound(SoundType.METAL),
+            true
+    );
+
     public static final Block TROPHY = register(
             "trophy",
             Block::new,
@@ -53,6 +60,12 @@ public class ModBlocks {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
     }
 
-    public static void initialize() {}
+    private static Block registerBlock(String name, Block block) {
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath("example", name), block);
+    }
+
+    public static void initialize() {
+
+    }
 
 }

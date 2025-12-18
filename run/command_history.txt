@@ -33,3 +33,4 @@
 /guild invite @a
 /guild invite
 /guild invite Player286
+/give @s modid:trophy2
