@@ -22,3 +22,8 @@
 /guild create "lobos"
 /guild create "gays"
 /guild list
+/give @a modid:condensed_dirt
+/guild invite Player860
+/guild create "gabiru"
+/guild list
+/guild invite Player860

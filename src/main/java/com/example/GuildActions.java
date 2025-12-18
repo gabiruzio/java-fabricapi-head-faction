@@ -3,7 +3,9 @@ package com.example;
 import com.example.guild.Guild;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +16,6 @@ public class GuildActions {
 
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-
         GuildWorldState state = GuildWorldState.get(server);
 
         String guildName = StringArgumentType.getString(context, "name");
@@ -68,5 +69,104 @@ public class GuildActions {
         }
 
         return 1;
+    }
+
+    public final static int delete(CommandContext<CommandSourceStack> context) {
+        MinecraftServer server = context.getSource().getServer();
+        ServerPlayer player = context.getSource().getPlayer();
+        GuildWorldState state = GuildWorldState.get(server);
+
+        String guildName = StringArgumentType.getString(context, "name");
+
+        return 1;
+    }
+
+    public final static int leave(CommandContext<CommandSourceStack> context) {
+        MinecraftServer server = context.getSource().getServer();
+        ServerPlayer player = context.getSource().getPlayer();
+        GuildWorldState state = GuildWorldState.get(server);
+
+        String guildName = StringArgumentType.getString(context, "name");
+
+        for(Guild g : state.getGuilds().values()) {
+            if(!g.getName().equals(guildName)) {
+                continue;
+            }
+            if(!g.getMembers().contains(player.getName().getString())) {
+                context.getSource().sendFailure(Component.translatable("you are no a member of this guild!", guildName));
+                return 0;
+            }
+
+            state.getGuilds().remove(guildName);
+            context.getSource().sendSuccess(
+                    () -> Component.literal("you leave the guild " + guildName + "!"),
+                    false
+            );
+            state.setDirty();
+            return 1;
+        }
+        context.getSource().sendFailure(Component.translatable("guild dont found!", guildName));
+        return 0;
+    }
+
+    public final static int join(CommandContext<CommandSourceStack> context) {
+        MinecraftServer server = context.getSource().getServer();
+        ServerPlayer player = context.getSource().getPlayer();
+        GuildWorldState state = GuildWorldState.get(server);
+
+        String guildName = StringArgumentType.getString(context, "name");
+
+        if(state.getGuilds().containsKey(guildName)) {
+            Guild g = state.getGuilds().get(guildName);
+            if(g.getInvited().contains(player.getName().getString())) {
+                g.getInvited().remove(player.getName().getString());
+                g.getMembers().add(player.getName().getString());
+
+                state.setDirty();
+                context.getSource().sendSuccess(
+                        () -> Component.literal("you join!"), false);
+
+                return 1;
+            }
+            context.getSource().sendFailure(Component.translatable("invite dont found!", guildName));
+            return 0;
+        }
+        context.getSource().sendFailure(Component.translatable("guild dont found!", guildName));
+        return 0;
+    }
+
+    public final static int invite(CommandContext<CommandSourceStack> context) {
+        MinecraftServer server = context.getSource().getServer();
+        ServerPlayer player = context.getSource().getPlayer();
+        GuildWorldState state = GuildWorldState.get(server);
+
+        Guild guild = null;
+        for(Guild g : state.getGuilds().values()) {
+            if(g.getOwner().equals(player.getName().getString())) {
+                guild = g;
+                break;
+            }
+        }
+
+        if(guild == null) {
+            context.getSource().sendFailure(Component.translatable("you need be owner of a guild!"));
+            return 0;
+        }
+
+        try {
+            ServerPlayer playerInvited = EntityArgument.getPlayer(context, "player_name");
+            String playerInvitedName = playerInvited.getName().getString();
+
+            guild.getInvited().add(playerInvited.getName().getString());
+            state.setDirty();
+
+            context.getSource().sendSuccess(
+                    () -> Component.literal(playerInvitedName + " invited with successfuly!"), false);
+
+            return 1;
+        } catch (CommandSyntaxException e) {
+
+        }
+        return 0;
     }
 }
