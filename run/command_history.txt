@@ -33,3 +33,10 @@
 /guild invite @a
 /guild invite
 /guild invite Player286
+/guild create Pinks
+/guild list
+/guild create NOPinks
+/guild delete Pinks
+/guild list
+/guild create Lambisgoios
+/guild list
