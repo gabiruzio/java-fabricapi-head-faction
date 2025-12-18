@@ -1,6 +1,6 @@
 package com.battlefactions.creative.tab;
 
-import com.battlefactions.ExampleMod;
+import com.battlefactions.BattleFactionsMod;
 import com.battlefactions.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class CreativeTab {
 
-    public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item_group"));
+    public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, "item_group"));
 
     public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModBlocks.TROPHY))

@@ -36,3 +36,4 @@
 /give @s modid:trophy2
 /give @s battlefactions:trophy2
 /guild list
+/kill

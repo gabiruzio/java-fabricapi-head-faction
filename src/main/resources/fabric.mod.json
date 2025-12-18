@@ -17,10 +17,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.battlefactions.ExampleMod"
+			"com.battlefactions.BattleFactionsMod"
 		],
 		"client": [
-			"com.battlefactions.ExampleModClient"
+			"com.battlefactions.BattleFactionsModClient"
 		]
 	},
 	"mixins": [

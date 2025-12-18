@@ -1,6 +1,7 @@
 package com.battlefactions.blocks;
 
-import com.battlefactions.ExampleMod;
+import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.blocks.custom.TestBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -17,17 +18,14 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
-    public static final Block TROPHY2 = register(
-            "trophy2",
-            Trophy::new,
-            BlockBehaviour.Properties.of().sound(SoundType.METAL),
-            true
-    );
 
     public static final Block TROPHY = register(
             "trophy",
-            Block::new,
-            BlockBehaviour.Properties.of().sound(SoundType.METAL),
+            TestBlock::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(6.0f, 100.0f)
+                    .sound(SoundType.METAL),
             true
     );
 
@@ -53,11 +51,11 @@ public class ModBlocks {
     
     private static ResourceKey<Block> keyOfBlock(String name) {
 
-        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, name));
     }
 
     private static ResourceKey<Item> keyOfItem(String name) {
-        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, name));
     }
 
     private static Block registerBlock(String name, Block block) {

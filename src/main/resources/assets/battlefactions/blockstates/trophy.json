@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "modid:block/trophy"
+      "model": "battlefactions:block/trophy"
     }
   }
 }

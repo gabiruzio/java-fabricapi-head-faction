@@ -1,6 +1,6 @@
 package com.battlefactions.items;
 
-import com.battlefactions.ExampleMod;
+import com.battlefactions.BattleFactionsMod;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class ModItems {
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         // Create the item key.
-        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, name));
 
         // Create the item instance.
         Item item = itemFactory.apply(settings.setId(itemKey));
