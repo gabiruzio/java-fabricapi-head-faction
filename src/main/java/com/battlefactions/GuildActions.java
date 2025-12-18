@@ -1,6 +1,6 @@
-package com.example;
+package com.battlefactions;
 
-import com.example.guild.Guild;
+import com.battlefactions.guild.Guild;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;

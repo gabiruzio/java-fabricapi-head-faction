@@ -1,4 +1,4 @@
-package com.example;
+package com.battlefactions;
 
 import net.fabricmc.api.ClientModInitializer;
 

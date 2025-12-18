@@ -34,3 +34,5 @@
 /guild invite
 /guild invite Player286
 /give @s modid:trophy2
+/give @s battlefactions:trophy2
+/guild list

@@ -1,8 +1,7 @@
-package com.example.creative.tab;
+package com.battlefactions.creative.tab;
 
-import com.example.ExampleMod;
-import com.example.blocks.ModBlocks;
-import com.example.items.ModItems;
+import com.battlefactions.ExampleMod;
+import com.battlefactions.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;

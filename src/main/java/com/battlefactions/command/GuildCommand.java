@@ -1,12 +1,9 @@
-package com.example.command;
+package com.battlefactions.command;
 
-import com.example.GuildActions;
-import com.mojang.brigadier.CommandDispatcher;
-import com.sun.jdi.connect.Connector;
+import com.battlefactions.GuildActions;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.network.chat.Component;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 public class GuildCommand {

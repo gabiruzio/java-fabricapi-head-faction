@@ -1,10 +1,7 @@
-package com.example.guild;
+package com.battlefactions.guild;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
 
 import java.util.ArrayList;
 
