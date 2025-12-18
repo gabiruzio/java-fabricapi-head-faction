@@ -1,0 +1,24 @@
+/guild
+/guild create "ola mundo"
+/guild create aaaa
+/guild create "ola mundo"
+/guild create "lula"
+/guild create "gays"
+/guild create "aa\"
+/guild list
+/guild create "aa"
+/guild create aaa
+/guild create "aaa"
+/guild create "daaa"
+/guild create "gabirus"
+/guild list
+/guild create "gabirus"
+/guild create "aaa"
+/guild list
+/guild create "gabirus"
+/guild list
+/guild create "rogerios"
+/guild list
+/guild create "lobos"
+/guild create "gays"
+/guild list
