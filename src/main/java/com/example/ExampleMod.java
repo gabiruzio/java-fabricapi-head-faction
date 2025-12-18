@@ -2,6 +2,8 @@ package com.example;
 
 import com.example.blocks.ModBlocks;
 import com.example.command.GuildCommand;
+import com.example.creative.tab.CreativeTab;
+import com.example.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -15,6 +17,9 @@ public class ExampleMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+
+
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -23,7 +28,12 @@ public class ExampleMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
-		GuildCommand.register();
+		// Don't change order
 		ModBlocks.initialize();
+		ModItems.inicialize();
+		CreativeTab.inicialize();
+
+		GuildCommand.register();
+
 	}
 }

@@ -27,20 +27,9 @@
 /guild create "gabiru"
 /guild list
 /guild invite Player860
+/guild create mamuska
 /guild list
-/guild create "gabiru"
-/guild list
-/guild join "gabiru"
-/guild list
-/guild create "gab"
-/guild list
-/guild invite Player491
-/guild join "gab"
-/guild list
-/guild create "gab"
-/guild list
-/guild delete "gab"
-/guild create "lab"
-/guild list
-/guild delete "lab"
-/guild list
+/guild delete mamuska
+/guild invite @a
+/guild invite
+/guild invite Player286
