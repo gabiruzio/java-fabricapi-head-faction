@@ -43,6 +43,7 @@ public class Guild {
 
     public Guild() {
         members = new ArrayList<>();
+        invited = new ArrayList<>();
     }
 
     public String getOwner() {
