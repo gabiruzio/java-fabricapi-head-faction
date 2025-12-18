@@ -17,10 +17,10 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
-    public static final Block CONDENSED_DIRT = register(
-            "condensed_dirt",
+    public static final Block TROPHY = register(
+            "trophy",
             Block::new,
-            BlockBehaviour.Properties.of().sound(SoundType.GRASS),
+            BlockBehaviour.Properties.of().sound(SoundType.METAL),
             true
     );
 

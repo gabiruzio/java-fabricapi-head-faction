@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:stone": 39,
+      "modid:trophy": 16
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 2436,
+      "minecraft:walk_one_cm": 4510,
+      "minecraft:walk_under_water_one_cm": 108,
+      "minecraft:play_time": 2436,
+      "minecraft:jump": 71,
+      "minecraft:time_since_death": 2436,
+      "minecraft:sprint_one_cm": 2773,
+      "minecraft:swim_one_cm": 465,
+      "minecraft:total_world_time": 2520,
+      "minecraft:fly_one_cm": 15152,
+      "minecraft:walk_on_water_one_cm": 99,
+      "minecraft:crouch_one_cm": 140,
+      "minecraft:sneak_time": 21
+    }
+  },
+  "DataVersion": 4671
+}
