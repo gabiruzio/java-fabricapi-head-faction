@@ -5,3 +5,5 @@ bin/
 .idea/
 *.log
 run/
+run/logs/
+*.gz
