@@ -1,8 +1,6 @@
 package com.battlefactions.blocks;
 
 import com.battlefactions.BattleFactionsMod;
-import com.battlefactions.blocks.custom.Hearth;
-import com.battlefactions.blocks.custom.TestBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -19,26 +17,19 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
-
-    public static final Block TROPHY = register(
-            "trophy",
-            TestBlock::new,
+    // Exemple for How to Add Block!!!
+    public static final Block TEST_BLOCK = register(
+            "test_block",
+            Block::new,
             BlockBehaviour.Properties.of()
-                    .noOcclusion()
+                    //.noOcclusion() -> para modelo custom (não quadrado)
                     .strength(6.0f, 100.0f)
-                    .sound(SoundType.METAL),
+                    .sound(SoundType.GRASS),
             true
     );
 
-    public static final Block HEARTH = register(
-            "hearth",
-            Hearth::new,
-            BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .strength(1.0f, 100.0f)
-                    .sound(SoundType.METAL),
-            true
-    );
+
+
 
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
         // Create a registry key for the block

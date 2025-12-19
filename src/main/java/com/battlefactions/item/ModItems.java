@@ -11,8 +11,21 @@ import net.minecraft.world.item.Item;
 import java.util.function.Function;
 
 public class ModItems {
+
+    // Exemple for How to add Item
+    public static final Item TEST_ITEM = register(
+            "test_item",
+            Item::new,
+            new Item.Properties()
+    );
+
+
+
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         // Create the item key.
+
+
+
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, name));
 
         // Create the item instance.

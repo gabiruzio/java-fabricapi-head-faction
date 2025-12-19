@@ -1,8 +1,9 @@
 package com.battlefactions;
 
+import com.battlefactions.attributes.ModAttributes;
 import com.battlefactions.blocks.ModBlocks;
 import com.battlefactions.command.GuildCommand;
-import com.battlefactions.creative.tab.CreativeTab;
+import com.battlefactions.creative.CreativeTab;
 import com.battlefactions.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -36,11 +37,13 @@ public class BattleFactionsMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 
 		// Don't change order
-		ModBlocks.initialize();
 		ModItems.inicialize();
+		ModBlocks.initialize();
+		ModAttributes.initialize();
 		CreativeTab.inicialize();
 
 		GuildCommand.register();
+
 
 		ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
 			// if entity die for Player

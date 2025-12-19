@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "battlefactions:block/test_block"
+    }
+  }
+}
