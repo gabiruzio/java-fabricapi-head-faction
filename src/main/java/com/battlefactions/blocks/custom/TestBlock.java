@@ -22,4 +22,5 @@ public class TestBlock extends Block {
         return super.useWithoutItem(blockState, level, blockPos, player, blockHitResult);
 
     }
+
 }

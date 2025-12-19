@@ -3,7 +3,7 @@ package com.battlefactions;
 import com.battlefactions.blocks.ModBlocks;
 import com.battlefactions.command.GuildCommand;
 import com.battlefactions.creative.tab.CreativeTab;
-import com.battlefactions.items.ModItems;
+import com.battlefactions.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;

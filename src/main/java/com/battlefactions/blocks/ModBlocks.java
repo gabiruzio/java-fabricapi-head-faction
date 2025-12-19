@@ -1,6 +1,7 @@
 package com.battlefactions.blocks;
 
 import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.blocks.custom.Hearth;
 import com.battlefactions.blocks.custom.TestBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,6 +26,16 @@ public class ModBlocks {
             BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .strength(6.0f, 100.0f)
+                    .sound(SoundType.METAL),
+            true
+    );
+
+    public static final Block HEARTH = register(
+            "hearth",
+            Hearth::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(1.0f, 100.0f)
                     .sound(SoundType.METAL),
             true
     );

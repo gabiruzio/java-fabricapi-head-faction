@@ -37,3 +37,10 @@
 /give @s battlefactions:trophy2
 /guild list
 /kill
+/effect give @e[type=minecraft:chest_minecart,distance=..5] minecraft:glowing 99999 1 true
+/give @a battlefactions:hearth
+/guild join gurizes
+/guild create "Em um reino muito distante vivia um cara. Ele era extremamente gay. O nome dele era Gabiru e ele era comido por Damião, que também comia o Filipe. Eles eram um trisal muito feliz,"
+/guild
+/guild list
+/give @a battlefactions:hearth

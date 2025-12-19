@@ -1,4 +1,4 @@
-package com.battlefactions.items;
+package com.battlefactions.item;
 
 import com.battlefactions.BattleFactionsMod;
 import net.minecraft.core.Registry;

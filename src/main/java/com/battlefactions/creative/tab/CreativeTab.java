@@ -11,6 +11,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 
 
 public class CreativeTab {
@@ -18,9 +19,9 @@ public class CreativeTab {
     public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, "item_group"));
 
     public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ModBlocks.TROPHY))
+            .icon(() -> new ItemStack(Blocks.PLAYER_HEAD))
             //.icon(() -> new ItemStack(ModBlocks.TROPHY2))
-            .title(Component.translatable("itemGroup.example-mod"))
+            .title(Component.translatable("itemGroup.battlefactions"))
             .build();
 
 
@@ -31,6 +32,7 @@ public class CreativeTab {
         // Register items to the custom item group.
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.accept(ModBlocks.TROPHY);
+            itemGroup.accept(ModBlocks.HEARTH);
 
             // ...
         });
