@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "battlefactions:block/hearth"
+    "model": "battlefactions:item/hearth"
   }
 }
