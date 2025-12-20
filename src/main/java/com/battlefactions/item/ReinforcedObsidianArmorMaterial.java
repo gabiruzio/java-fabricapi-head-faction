@@ -37,4 +37,5 @@ public class ReinforcedObsidianArmorMaterial {
             REPAIRS_REINFORCED_OBSIDIAN_ARMOR,
             REINFORCED_OBSIDIAN_ARMOR_MATERIAL_KEY
     );
+
 }

@@ -37,6 +37,19 @@ public class BattleFactionsModRecipeProvider extends FabricRecipeProvider {
                         .group("multi_bench")
                         .unlockedBy(getHasName(Items.DIAMOND_AXE), has(Items.DIAMOND_AXE))
                         .save(output);
+
+                shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_OBSIDIAN_OMNI, 1)
+                        .pattern(" a ")
+                        .pattern("bcd")
+                        .pattern(" e ")
+                        .define('a', ModItems.REINFORCED_OBSIDIAN_SWORD)
+                        .define('b', ModItems.REINFORCED_OBSIDIAN_PICKAXE)
+                        .define('c', ModItems.REINFORCED_OBSIDIAN_AXE)
+                        .define('d', ModItems.REINFORCED_OBSIDIAN_SHOVEL)
+                        .define('e', ModItems.REINFORCED_OBSIDIAN_HOE)
+                        .group("multi_bench")
+                        .unlockedBy(getHasName(ModItems.REINFORCED_OBSIDIAN_INGOT), has(ModItems.REINFORCED_OBSIDIAN_INGOT))
+                        .save(output);
                 /*
                 shaped(RecipeCategory.MISC, Items.CRAFTING_TABLE, 4)
                         .pattern("ll")

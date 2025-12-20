@@ -37,7 +37,18 @@ public class CreativeTab {
             itemGroup.accept(ModBlocks.TEST_BLOCK);
 
             itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_INGOT);
+
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_HELMET);
             itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_CHESTPLATE);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_LEGGINGS);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_BOOTS);
+
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_SWORD);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_AXE);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_PICKAXE);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_SHOVEL);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_HOE);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_OMNI);
 
         });
 

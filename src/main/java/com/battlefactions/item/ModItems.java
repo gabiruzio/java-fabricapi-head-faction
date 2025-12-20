@@ -2,11 +2,14 @@ package com.battlefactions.item;
 
 import com.battlefactions.BattleFactionsMod;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.function.Function;
@@ -47,10 +50,60 @@ public class ModItems {
     );
 
     public static final Item REINFORCED_OBSIDIAN_BOOTS = register(
-            "reinforced_obsidian__boots",
+            "reinforced_obsidian_boots",
             Item::new,
             new Item.Properties().humanoidArmor(ReinforcedObsidianArmorMaterial.INSTANCE, ArmorType.BOOTS)
                     .durability(ArmorType.BOOTS.getDurability(ReinforcedObsidianArmorMaterial.BASE_DURABILITY))
+    );
+
+    public static final ToolMaterial REINFORCED_OBSIDIAN_TOOL_MATERIAL = new ToolMaterial(
+            BlockTags.ALL_SIGNS,
+            455,
+            5.0F,
+            1.5F,
+            22,
+            ReinforcedObsidianArmorMaterial.REPAIRS_REINFORCED_OBSIDIAN_ARMOR
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_SWORD = register(
+            "reinforced_obsidian_sword",
+            Item::new,
+            new Item.Properties().sword(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_PICKAXE = register(
+            "reinforced_obsidian_pickaxe",
+            Item::new,
+            new Item.Properties().pickaxe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_AXE = register(
+            "reinforced_obsidian_axe",
+            Item::new,
+            new Item.Properties().axe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_HOE = register(
+            "reinforced_obsidian_hoe",
+            Item::new,
+            new Item.Properties().hoe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_SHOVEL = register(
+            "reinforced_obsidian_shovel",
+            Item::new,
+            new Item.Properties().shovel(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+    );
+
+    public static final Item REINFORCED_OBSIDIAN_OMNI = register(
+            "reinforced_obsidian_omni_tool",
+            Item::new,
+            new ReinforcedObsidianIngot.Properties().stacksTo(1)
+                    .sword(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+                    .hoe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+                    .pickaxe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+                    .axe(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
+                    .shovel(REINFORCED_OBSIDIAN_TOOL_MATERIAL, 1f, 1f)
     );
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {

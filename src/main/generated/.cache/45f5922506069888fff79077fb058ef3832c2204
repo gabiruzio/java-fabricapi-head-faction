@@ -1,3 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	Example mod/BattleFactionsModRecipeProvider
 8f930e852c248a312a2a38942714776e17e4c803 data/battlefactions/advancement/recipes/misc/reinforced_obsidian_ingot.json
-6c5161b57ff02f23e2faab9a6a444766d8d66926 data/battlefactions/recipe/reinforced_obsidian_ingot.json
+062ebac7b5347c93e31b0d6e99a876f88f079a16 data/battlefactions/advancement/recipes/tools/reinforced_obsidian_omni_tool.json
+62fe448287c3a277df949ad6a3ebdb9a8d7087be data/battlefactions/recipe/reinforced_obsidian_ingot.json
+f19da2fba27a66137c60347ca7b362d207fbdbc3 data/battlefactions/recipe/reinforced_obsidian_omni_tool.json
