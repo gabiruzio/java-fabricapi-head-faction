@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "i": "minecraft:obsidian",
+    "l": "minecraft:diamond"
+  },
+  "pattern": [
+    "li",
+    "il"
+  ],
+  "result": {
+    "count": 4,
+    "id": "battlefactions:reinforced_obsidian_ingot"
+  }
+}

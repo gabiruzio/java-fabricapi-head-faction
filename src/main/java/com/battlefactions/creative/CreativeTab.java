@@ -36,6 +36,8 @@ public class CreativeTab {
             itemGroup.accept(ModItems.TEST_ITEM);
             itemGroup.accept(ModBlocks.TEST_BLOCK);
 
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_INGOT);
+            itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_CHESTPLATE);
 
         });
 

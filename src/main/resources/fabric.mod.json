@@ -21,8 +21,11 @@
 		],
 		"client": [
 			"com.battlefactions.BattleFactionsModClient"
-		]
-	},
+		],
+        "fabric-datagen": [
+            "com.battlefactions.docs.datagen.BattleFactionsModDataGenerator"
+        ]
+    },
 	"mixins": [
 		"battlefactions.mixins.json",
 		{
