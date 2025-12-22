@@ -1,6 +1,7 @@
 package com.battlefactions;
 
 import com.battlefactions.attributes.ModAttributes;
+import com.battlefactions.block_entitys.ModBlockEntities;
 import com.battlefactions.blocks.ModBlocks;
 import com.battlefactions.command.GuildCommand;
 import com.battlefactions.creative.CreativeTab;
@@ -39,6 +40,7 @@ public class BattleFactionsMod implements ModInitializer {
 		// Don't change order
 		ModItems.inicialize();
 		ModBlocks.initialize();
+		ModBlockEntities.initialize();
 		ModAttributes.initialize();
 		CreativeTab.inicialize();
 

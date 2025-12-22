@@ -23,6 +23,7 @@ public class ModItems {
             new Item.Properties()
     );
 
+
     public static final Item REINFORCED_OBSIDIAN_INGOT = register(
             "reinforced_obsidian_ingot",
             ReinforcedObsidianIngot::new,

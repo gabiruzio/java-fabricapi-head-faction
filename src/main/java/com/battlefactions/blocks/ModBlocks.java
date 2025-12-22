@@ -1,6 +1,9 @@
 package com.battlefactions.blocks;
 
 import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.blocks.custom.ShameSymbolBlock;
+import com.battlefactions.blocks.custom.TrophyBlock;
+import com.battlefactions.blocks.custom.VictorySymbolBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +28,37 @@ public class ModBlocks {
                     //.noOcclusion() -> para modelo custom (não quadrado)
                     .strength(6.0f, 100.0f)
                     .sound(SoundType.GRASS),
+            true
+    );
+
+
+    public static final Block TROPHY_BLOCK = register(
+            "trophy_block",
+            TrophyBlock::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(6.0f, 100.0f)
+                    .sound(SoundType.METAL),
+            true
+    );
+
+    public static final Block VICTORY_SYMBOL_BLOCK = register(
+            "victory_symbol_block",
+            VictorySymbolBlock::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(1.0f, 100.0f)
+                    .sound(SoundType.BONE_BLOCK),
+            true
+    );
+
+    public static final Block SHAME_SYMBOL_BLOCK = register(
+            "shame_symbol_block",
+            ShameSymbolBlock::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(1.0f, 100.0f)
+                    .sound(SoundType.BONE_BLOCK),
             true
     );
 

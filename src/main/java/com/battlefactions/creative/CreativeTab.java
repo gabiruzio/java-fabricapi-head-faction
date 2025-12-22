@@ -50,6 +50,9 @@ public class CreativeTab {
             itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_HOE);
             itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_OMNI);
 
+            itemGroup.accept(ModBlocks.TROPHY_BLOCK);
+            itemGroup.accept(ModBlocks.VICTORY_SYMBOL_BLOCK);
+            itemGroup.accept(ModBlocks.SHAME_SYMBOL_BLOCK);
         });
 
         // Add items a exist minecraft tab
