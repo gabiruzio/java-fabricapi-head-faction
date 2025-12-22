@@ -1,4 +1,4 @@
-package com.battlefactions.item;
+package com.battlefactions.item.custom;
 
 import com.battlefactions.BattleFactionsMod;
 import net.minecraft.core.registries.BuiltInRegistries;

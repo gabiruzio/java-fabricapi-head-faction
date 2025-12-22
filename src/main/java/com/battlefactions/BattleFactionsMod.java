@@ -54,11 +54,12 @@ public class BattleFactionsMod implements ModInitializer {
 			// Onlu if dead case for dead for other player
 			//if (source.getEntity() instanceof ServerPlayer killer) {
 
+
 			// Posição onde o jogador morreu
 			BlockPos pos = deadPlayer.getOnPos();
 
 			// Cria o item que você quer dropar (ex: um diamante)
-			ItemStack stack = new ItemStack(Items.PLAYER_HEAD); // mude para o item que quiser
+			ItemStack stack = new ItemStack(ModBlocks.VICTORY_SYMBOL_BLOCK); // mude para o item que quiser
 
 
 			// Dropa a pilha no mundo onde morreu

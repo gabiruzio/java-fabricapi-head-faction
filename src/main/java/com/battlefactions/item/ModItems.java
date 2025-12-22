@@ -1,8 +1,9 @@
 package com.battlefactions.item;
 
 import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.item.custom.ReinforcedObsidianArmorMaterial;
+import com.battlefactions.item.custom.ReinforcedObsidianIngot;
 import net.minecraft.core.Registry;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

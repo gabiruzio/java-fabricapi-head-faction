@@ -1,4 +1,4 @@
-package com.battlefactions.item;
+package com.battlefactions.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;

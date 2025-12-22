@@ -7,10 +7,23 @@
 
 
   "block.battlefactions.test_block": "Test Block",
-  "block.battlefactions.trophy_block": "Trophy",
-  "block.battlefactions.victory_symbol_block": "§6Victory Symbol",
-  "block.battlefactions.shame_symbol_block": "§6Shame Symbol",
+  "block.battlefactions.trophy_block": "§6Trophy",
+  "block.battlefactions.victory_symbol_block": "§bVictory Symbol",
+  "block.battlefactions.shame_symbol_block": "§4Shame Symbol",
 
 
-  "attribute.name.battlefactions.test_attribute": "Test Attribute"
+  "attribute.name.battlefactions.test_attribute": "Test Attribute",
+
+
+  "faction_already_exist_alert": "Faction already exist",
+  "already_stay_in_faction_alert": "You're already in one Faction",
+  "faction_create_alert": "Create the faction was successfully",
+  "no_faction_exist_alert": "This Faction not exist",
+  "factions_delete_alert": "This faction has been successfully deleted!",
+  "need_be_factions_owner_alert": "Only the faction owner can do that",
+  "faction_not_found_alert": "Faction not found",
+  "not_member_faction_alert": "There are no members in the faction ",
+  "invite_not_found_alert": "Invite not found",
+  "player_not_found_alert": "Player not found"
+
 }

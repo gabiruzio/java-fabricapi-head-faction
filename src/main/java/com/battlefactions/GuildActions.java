@@ -22,14 +22,14 @@ public class GuildActions {
 
         // verifo se a guilda já existe
         if (state.getGuilds().containsKey(guildName)) {
-            context.getSource().sendFailure(Component.translatable("guild already exists!", guildName));
+            context.getSource().sendFailure(Component.translatable("faction_already_exist_alert", guildName));
             return 0;
         }
 
         // verifico se o player já esta em uma guild
         for(Guild g : state.getGuilds().values()) {
             if (g.getMembers().contains(player.getName().getString())) {
-                context.getSource().sendFailure(Component.translatable("you already are in a guild!", guildName));
+                context.getSource().sendFailure(Component.translatable("already_stay_in_faction_alert", guildName));
                 return 0;
             }
         }
@@ -41,7 +41,7 @@ public class GuildActions {
 
         state.addGuild(guildName, guild);
 
-        context.getSource().sendSuccess(() -> Component.literal("guild successfuly created"), false);
+        context.getSource().sendSuccess(() -> Component.literal("faction_create_alert"), false);
 
         return 1;
     }
@@ -52,12 +52,12 @@ public class GuildActions {
         GuildWorldState state = GuildWorldState.get(server);
 
         if(state.getGuilds().size()==0) {
-            context.getSource().sendFailure(Component.translatable("no one guild exists!"));
+            context.getSource().sendFailure(Component.translatable("no_faction_exist_alert"));
             return 0;
         }
 
         context.getSource().sendSuccess(
-                () -> Component.literal("guilds:"),
+                () -> Component.literal("Factions:"),
                 false
         );
 
@@ -83,15 +83,15 @@ public class GuildActions {
                 continue;
             }
             if(g.getOwner().equals(player.getName().getString())) {
-                context.getSource().sendFailure(Component.translatable("guild deleted!", guildName));
+                context.getSource().sendFailure(Component.translatable("factions_delete_alert", guildName));
                 state.getGuilds().remove(guildName);
                 state.setDirty();
                 return 1;
             }
-            context.getSource().sendFailure(Component.translatable("you need be owner to delete this guild!", guildName));
+            context.getSource().sendFailure(Component.translatable("need_be_factions_owner_alert", guildName));
             return 0;
         }
-        context.getSource().sendFailure(Component.translatable("guild not found!", guildName));
+        context.getSource().sendFailure(Component.translatable("faction_not_found_alert", guildName));
         return 1;
     }
 
@@ -107,7 +107,7 @@ public class GuildActions {
                 continue;
             }
             if(!g.getMembers().contains(player.getName().getString())) {
-                context.getSource().sendFailure(Component.translatable("you are no a member of this guild!", guildName));
+                context.getSource().sendFailure(Component.translatable("not_member_faction_alert", guildName));
                 return 0;
             }
 
@@ -119,7 +119,7 @@ public class GuildActions {
             state.setDirty();
             return 1;
         }
-        context.getSource().sendFailure(Component.translatable("guild dont found!", guildName));
+        context.getSource().sendFailure(Component.translatable("faction_not_found_alert", guildName));
         return 0;
     }
 
@@ -142,10 +142,10 @@ public class GuildActions {
 
                 return 1;
             }
-            context.getSource().sendFailure(Component.translatable("invite dont found!", guildName));
+            context.getSource().sendFailure(Component.translatable("invite_not_found_alert", guildName));
             return 0;
         }
-        context.getSource().sendFailure(Component.translatable("guild dont found!", guildName));
+        context.getSource().sendFailure(Component.translatable("faction_not_found_alert", guildName));
         return 0;
     }
 
@@ -163,7 +163,7 @@ public class GuildActions {
         }
 
         if(guild == null) {
-            context.getSource().sendFailure(Component.translatable("you need be owner of a guild!"));
+            context.getSource().sendFailure(Component.translatable("need_be_factions_owner_alert"));
             return 0;
         }
 
@@ -192,7 +192,7 @@ public class GuildActions {
         } catch (CommandSyntaxException e) {
             context.getSource().sendFailure(Component.translatable(e.getMessage()));
         }
-        context.getSource().sendFailure(Component.translatable("player not found!"));
+        context.getSource().sendFailure(Component.translatable("player_not_found_alert"));
         return 0;
     }
 }
