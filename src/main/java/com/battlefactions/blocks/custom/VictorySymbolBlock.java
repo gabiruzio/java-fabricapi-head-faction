@@ -7,6 +7,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -19,10 +20,13 @@ public class VictorySymbolBlock extends Block {
     public static final EnumProperty<Direction> FACING;
     private static final VoxelShape SHAPE;
 
+    public static final BooleanProperty XRAY = BooleanProperty.create("xray");
+
 
     public VictorySymbolBlock(Properties properties) {
         super(properties);
         this.registerDefaultState((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState((BlockState) ((BlockState)this.stateDefinition.any()).setValue(XRAY, false));
     }
 
     @Override
@@ -43,6 +47,7 @@ public class VictorySymbolBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{FACING});
+        builder.add(new Property[]{XRAY});
     }
 
     static {
