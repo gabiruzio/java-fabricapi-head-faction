@@ -20,9 +20,13 @@
 			"com.battlefactions.BattleFactionsMod"
 		],
 		"client": [
-			"com.battlefactions.BattleFactionsModClient"
-		]
-	},
+
+			"com.battlefactions.render.CustomRenderPipeline"
+		],
+        "fabric-datagen": [
+            "com.battlefactions.docs.datagen.BattleFactionsModDataGenerator"
+        ]
+    },
 	"mixins": [
 		"battlefactions.mixins.json",
 		{

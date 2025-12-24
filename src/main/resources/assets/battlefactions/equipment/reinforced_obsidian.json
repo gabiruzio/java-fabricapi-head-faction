@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "battlefactions:reinforced_obsidian"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "battlefactions:reinforced_obsidian"
+      }
+    ]
+  }
+}

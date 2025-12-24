@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "multi_bench",
+  "key": {
+    "a": "battlefactions:reinforced_obsidian_sword",
+    "b": "battlefactions:reinforced_obsidian_pickaxe",
+    "c": "battlefactions:reinforced_obsidian_axe",
+    "d": "battlefactions:reinforced_obsidian_shovel",
+    "e": "battlefactions:reinforced_obsidian_hoe"
+  },
+  "pattern": [
+    " a ",
+    "bcd",
+    " e "
+  ],
+  "result": {
+    "count": 1,
+    "id": "battlefactions:reinforced_obsidian_omni_tool"
+  }
+}

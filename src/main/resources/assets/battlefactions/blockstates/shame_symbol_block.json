@@ -1,0 +1,22 @@
+
+{
+  "variants": {
+    "facing=east": {
+      "model": "battlefactions:block/shame_symbol_block",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "battlefactions:block/shame_symbol_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "battlefactions:block/shame_symbol_block",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "battlefactions:block/shame_symbol_block"
+    }
+  }
+}
+
+

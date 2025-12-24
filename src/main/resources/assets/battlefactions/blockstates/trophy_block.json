@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "battlefactions:block/trophy_block"
+    }
+  }
+}

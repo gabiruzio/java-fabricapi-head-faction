@@ -1,0 +1,18 @@
+package com.battlefactions.blocks.custom;
+
+import com.battlefactions.block_entitys.custom.TrophyBlockEntity;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.Nullable;
+
+public class TrophyBlock extends Block {
+    public TrophyBlock(Properties properties) {
+        super(properties);
+    }
+
+}
