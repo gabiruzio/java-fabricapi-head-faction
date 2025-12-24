@@ -6,9 +6,24 @@
 
 
   "block.battlefactions.test_block": "Bloco de teste",
+  "block.battlefactions.trophy_block": "§6Troféu",
+  "block.battlefactions.victory_symbol_block": "§bSímbolo da Vitória",
+  "block.battlefactions.shame_symbol_block": "§4Símbolo da Vergonha",
 
+"attribute.name.battlefactions.test_attribute": "Atributo de Teste",
 
-  "attribute.name.battlefactions.test_attribute": "Atributo de Teste",
-
-  "item.battlefactions.cucumber": "Pepino"
+  "item.battlefactions.cucumber": "Pepino",
+  "item.battlefactions.reinforced_obsidian_axe": "Machado de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_boots": "Botas de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_chestplate": "Peitoral de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_helmet": "Capacete de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_hoe": "Enxada de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_ingot": "Lingote de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_leggings": "Calças de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_omni_tool": "Ferramenta Multiuso de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_pickaxe": "Picareta de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_shovel": "Pá de Obsidiana",
+  "item.battlefactions.reinforced_obsidian_sword": "Espada de Obsidiana",
+  "item.battlefactions.shame_symbol_block": "Bloco de Obsidiana"
 }
+

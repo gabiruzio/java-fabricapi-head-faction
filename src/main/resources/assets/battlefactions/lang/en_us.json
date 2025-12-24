@@ -14,9 +14,19 @@
 
   "attribute.name.battlefactions.test_attribute": "Test Attribute",
 
-  "attribute.name.battlefactions.test_attribute": "Test Attribute",
-
-  "item.battlefactions.cucumber": "Cucumber"
+  "item.battlefactions.cucumber": "Cucumber",
+  "item.battlefactions.reinforced_obsidian_axe": "Obsidian Axe",
+  "item.battlefactions.reinforced_obsidian_boots": "Obsidian Boots",
+  "item.battlefactions.reinforced_obsidian_chestplate": "Obsidian Chestplate",
+  "item.battlefactions.reinforced_obsidian_helmet": "Obsidian Helmet",
+  "item.battlefactions.reinforced_obsidian_hoe": "Obsidian Hoe",
+  "item.battlefactions.reinforced_obsidian_ingot": "Obsidian Ingot",
+  "item.battlefactions.reinforced_obsidian_leggings": "Obsidian Leggings",
+  "item.battlefactions.reinforced_obsidian_omni_tool": "Obsidian Omni Tool",
+  "item.battlefactions.reinforced_obsidian_pickaxe": "Obsidian Pickaxe",
+  "item.battlefactions.reinforced_obsidian_shovel": "Obsidian Shovel",
+  "item.battlefactions.reinforced_obsidian_sword": "Obsidian Sword",
+  "item.battlefactions.shame_symbol_block": "Obsidian Block",
 
   "faction_already_exist_alert": "Faction already exist",
   "already_stay_in_faction_alert": "You're already in one Faction",
