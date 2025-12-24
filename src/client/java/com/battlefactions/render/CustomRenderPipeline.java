@@ -18,6 +18,7 @@ import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.joml.Vector3f;
@@ -47,7 +48,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
     // :::custom-pipelines:define-pipeline
     private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
             .withLocation(Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
-            .withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLE_STRIP)
+            .withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.TRIANGLES)
             .withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
             .build()
     );
@@ -66,6 +67,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
         return instance;
     }
 
+    ModelManager models = Minecraft.getInstance().getModelManager();
+
+
     @Override
     public void onInitializeClient() {
         LOGGER.info("Custom Render ON!!!");
@@ -77,6 +81,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
         renderWaypoint(context);
         drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
     }
+
 
     // :::custom-pipelines:extraction-phase
     private void renderWaypoint(WorldRenderContext context) {
@@ -91,10 +96,18 @@ public class CustomRenderPipeline implements ClientModInitializer {
             buffer = new BufferBuilder(allocator, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
         }
 
-        VoxelShape shape = Shapes.box(0f, 100f, 0f, 1f, 101f, 1f);
+        //VoxelShape shape = Shapes.box(0f, 100f, 0f, 1f, 101f, 1f);
 
 
-        ShapeRenderer.renderShape(matrices, buffer, shape, 0f, 1, 0f, 1, 2F);
+
+        //ShapeRenderer.renderShape(matrices, buffer, shape, 0f, 1, 0f, 1, 2F);
+
+        var matrix = matrices.last().pose();
+
+        buffer.addVertex(matrix, 0f, 0f, 0f).setColor(255,255,255,255);
+        buffer.addVertex(matrix, 10f, 0f, 0f).setColor(255,255,255,255);
+        buffer.addVertex(matrix, 0f, 10f, 0f).setColor(255,255,255,255);
+
 
         matrices.popPose();
     }
