@@ -41,7 +41,7 @@ public class GuildActions {
 
         state.addGuild(guildName, guild);
 
-        context.getSource().sendSuccess(() -> Component.literal("guild successfuly created"), false);
+        context.getSource().sendSuccess(() -> Component.literal("guild successfully created"), false);
 
         return 1;
     }

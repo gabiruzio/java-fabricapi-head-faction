@@ -35,6 +35,7 @@ public class CreativeTab {
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.accept(ModItems.TEST_ITEM);
             itemGroup.accept(ModBlocks.TEST_BLOCK);
+            itemGroup.accept(ModItems.CUCUMBER);
 
 
         });

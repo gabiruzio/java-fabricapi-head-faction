@@ -9,5 +9,7 @@
   "block.battlefactions.test_block": "Test Block",
 
 
-  "attribute.name.battlefactions.test_attribute": "Test Attribute"
+  "attribute.name.battlefactions.test_attribute": "Test Attribute",
+
+  "item.battlefactions.cucumber": "Cucumber"
 }

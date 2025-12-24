@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Function;
@@ -18,8 +19,17 @@ public class ModItems {
             Item::new,
             new Item.Properties()
     );
-
-
+    //Example for how to a food item
+    public static final Item CUCUMBER = register(
+            "cucumber",
+            Item::new,
+            new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(8)              // fome restaurada
+                            .saturationModifier(0.6F)  // saturação
+                            .build()
+            )
+    );
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         // Create the item key.
