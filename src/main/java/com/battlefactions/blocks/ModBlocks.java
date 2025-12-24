@@ -1,6 +1,7 @@
 package com.battlefactions.blocks;
 
 import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.blocks.custom.FlagBlock;
 import com.battlefactions.blocks.custom.ShameSymbolBlock;
 import com.battlefactions.blocks.custom.TrophyBlock;
 import com.battlefactions.blocks.custom.VictorySymbolBlock;
@@ -62,6 +63,15 @@ public class ModBlocks {
             true
     );
 
+    public static final Block FLAG = register(
+            "flag",
+            FlagBlock::new,
+            BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .strength(2.0f)
+                    .sound(SoundType.WOOL),
+            true
+    );
 
 
 

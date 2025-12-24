@@ -9,6 +9,7 @@
   "block.battlefactions.trophy_block": "§6Troféu",
   "block.battlefactions.victory_symbol_block": "§bSímbolo da Vitória",
   "block.battlefactions.shame_symbol_block": "§4Símbolo da Vergonha",
+  "block.battlefactions.flag": "Bandeira",
 
 "attribute.name.battlefactions.test_attribute": "Atributo de Teste",
 
@@ -25,5 +26,6 @@
   "item.battlefactions.reinforced_obsidian_shovel": "Pá de Obsidiana",
   "item.battlefactions.reinforced_obsidian_sword": "Espada de Obsidiana",
   "item.battlefactions.shame_symbol_block": "Bloco de Obsidiana"
+
 }
 

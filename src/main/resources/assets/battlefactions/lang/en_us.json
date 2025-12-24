@@ -10,6 +10,7 @@
   "block.battlefactions.trophy_block": "§6Trophy",
   "block.battlefactions.victory_symbol_block": "§bVictory Symbol",
   "block.battlefactions.shame_symbol_block": "§4Shame Symbol",
+  "block.battlefactions.flag": "Flag",
 
 
   "attribute.name.battlefactions.test_attribute": "Test Attribute",

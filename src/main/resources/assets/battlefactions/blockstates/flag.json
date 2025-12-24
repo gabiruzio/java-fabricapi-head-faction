@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "battlefactions:block/flag_lower"
+    },
+    "half=upper": {
+      "model": "battlefactions:block/flag_upper"
+    }
+  }
+}
+
