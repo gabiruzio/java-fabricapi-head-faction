@@ -1,11 +1,15 @@
 {
   "variants": {
-    "half=lower": {
-      "model": "battlefactions:block/flag_lower"
-    },
-    "half=upper": {
-      "model": "battlefactions:block/flag_upper"
-    }
+    "half=lower,facing=north": { "model": "battlefactions:block/flag_lower" },
+    "half=lower,facing=east":  { "model": "battlefactions:block/flag_lower", "y": 90 },
+    "half=lower,facing=south": { "model": "battlefactions:block/flag_lower", "y": 180 },
+    "half=lower,facing=west":  { "model": "battlefactions:block/flag_lower", "y": 270 },
+
+    "half=upper,facing=north": { "model": "battlefactions:block/flag_upper" },
+    "half=upper,facing=east":  { "model": "battlefactions:block/flag_upper", "y": 90 },
+    "half=upper,facing=south": { "model": "battlefactions:block/flag_upper", "y": 180 },
+    "half=upper,facing=west":  { "model": "battlefactions:block/flag_upper", "y": 270 }
   }
 }
+
 

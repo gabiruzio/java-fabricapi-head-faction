@@ -2,6 +2,7 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
+	"ambientocclusion": false,
 	"textures": {
 		"particle": "battlefactions:block/flag",
 		"texture": "battlefactions:block/flag"
@@ -22,15 +23,15 @@
 		},
 		{
 			"from": [7, 8, 9],
-			"to": [9, 16, 18],
+			"to": [9, 16, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 16, 15]},
 			"faces": {
-				"north": {"uv": [14, 10, 15, 13], "texture": "#texture"},
-				"east": {"uv": [12, 10, 16, 16], "texture": "#texture"},
-				"south": {"uv": [15, 10, 16, 13], "texture": "#texture"},
+				"north": {"uv": [12, 10, 13, 13], "texture": "#texture"},
+				"east": {"uv": [12, 5, 16, 15], "texture": "#texture"},
+				"south": {"uv": [14, 9, 16, 13], "texture": "#texture"},
 				"west": {"uv": [11, 0, 16, 9.5], "texture": "#texture"},
 				"up": {"uv": [14, 1, 15, 2], "texture": "#texture"},
-				"down": {"uv": [14, 4, 15, 5], "texture": "#texture"}
+				"down": {"uv": [15, 2, 16, 3], "texture": "#texture"}
 			}
 		}
 	]
