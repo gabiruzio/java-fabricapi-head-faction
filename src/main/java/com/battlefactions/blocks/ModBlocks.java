@@ -10,6 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -48,7 +49,7 @@ public class ModBlocks {
             VictorySymbolBlock::new,
             BlockBehaviour.Properties.of()
                     .noOcclusion()
-                    .strength(1.0f, 100.0f)
+                    .strength(6.0f)
                     .sound(SoundType.BONE_BLOCK),
             true
     );
@@ -63,12 +64,13 @@ public class ModBlocks {
             true
     );
 
-    public static final Block FLAG = register(
-            "flag",
+    public static final Block FLAG_BLOCK = register(
+            "flag_block",
             FlagBlock::new,
             BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .strength(2.0f)
+
                     .sound(SoundType.WOOL),
             true
     );

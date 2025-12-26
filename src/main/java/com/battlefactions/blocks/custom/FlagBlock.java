@@ -1,20 +1,45 @@
 package com.battlefactions.blocks.custom;
 
+import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.block_entitys.custom.FlagBlockEntity;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.BlockHitResult;
+import org.jspecify.annotations.Nullable;
+
+import java.util.UUID;
 
 
-public class FlagBlock extends Block {
+public class FlagBlock extends BaseEntityBlock {
+
+
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return simpleCodec(FlagBlock::new);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new FlagBlockEntity(pos, state);
+    }
+
 
     // Define se é a parte de baixo ou de cima
     public static final EnumProperty<DoubleBlockHalf> HALF =
@@ -83,4 +108,28 @@ public class FlagBlock extends Block {
         builder.add(HALF, BlockStateProperties.HORIZONTAL_FACING);
     // Registra as propriedades do bloco
     }
+
+
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit){
+        if (!(world.getBlockEntity(pos) instanceof FlagBlockEntity flagBlockEntity)) {
+            return super.useWithoutItem(state, world, pos, player, hit);
+        }
+
+        if(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER){
+
+            BlockPos lowerPos = pos.below();
+            return world.getBlockState(lowerPos).useWithoutItem(world, player, hit.withPosition(lowerPos));
+        }
+
+        if (!world.isClientSide()){
+            flagBlockEntity.interaction(player);
+        }
+
+
+        return InteractionResult.SUCCESS;
+    }
+
+
 }

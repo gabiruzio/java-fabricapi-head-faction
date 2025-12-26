@@ -2,8 +2,15 @@ package com.battlefactions.blocks.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -12,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 
@@ -54,6 +62,32 @@ public class VictorySymbolBlock extends Block {
         FACING = HorizontalDirectionalBlock.FACING;
         SHAPE = Block.column((double)8.0F, (double)0.0F, (double)8.0F);
     }
+
+
+    public void setPlacedBy(Level world, BlockPos pos, BlockState blockState, @Nullable LivingEntity placer, ItemStack itemStack) {
+
+        // Bloco abaixo da posição onde seu bloco foi colocado
+        BlockPos below = pos.relative(Direction.DOWN);
+
+        // Se o bloco abaixo não for um baú, remove este bloco
+        if (!world.getBlockState(below).is(Blocks.DIRT)) {
+            world.removeBlock(pos, false);
+
+            // Devolve o item ao jogador, se houver quem colocou
+            if (placer != null) {
+                placer.setItemInHand(InteractionHand.MAIN_HAND, itemStack.copy());
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 }
