@@ -10,11 +10,11 @@ import net.minecraft.world.level.saveddata.SavedDataType;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GuildWorldState extends SavedData {
+public class FactionWorldState extends SavedData {
 
     private final Map<String, Faction> guilds = new HashMap<>();
 
-    public static final Codec<GuildWorldState> CODEC =
+    public static final Codec<FactionWorldState> CODEC =
             RecordCodecBuilder.create(instance ->
                 instance.group(
                     Codec.unboundedMap(
@@ -22,17 +22,17 @@ public class GuildWorldState extends SavedData {
                             Faction.CODEC
                     )
                     .fieldOf("guild_data")
-                    .forGetter(GuildWorldState::getGuilds)
+                    .forGetter(FactionWorldState::getGuilds)
                 ).apply(instance, guilds -> {
-                    GuildWorldState state = new GuildWorldState();
+                    FactionWorldState state = new FactionWorldState();
                     state.guilds.putAll(guilds);
                     return state;
                 })
             );
 
-    private static final SavedDataType<GuildWorldState> TYPE = new SavedDataType<>(
+    private static final SavedDataType<FactionWorldState> TYPE = new SavedDataType<>(
             "guild_data",
-            GuildWorldState::new,
+            FactionWorldState::new,
             CODEC,
             null
     );
@@ -43,11 +43,11 @@ public class GuildWorldState extends SavedData {
     }
 
     // access
-    public static GuildWorldState get(MinecraftServer server) {
+    public static FactionWorldState get(MinecraftServer server) {
         ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
 
         if(level == null) {
-            return new GuildWorldState();
+            return new FactionWorldState();
         }
 
         return level.getDataStorage().computeIfAbsent(TYPE);

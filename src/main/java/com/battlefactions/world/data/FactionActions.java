@@ -9,13 +9,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 
-public class GuildActions {
+public class FactionActions {
 
     public static final int create(CommandContext<CommandSourceStack> context) {
 
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         String guildName = StringArgumentType.getString(context, "name");
 
@@ -48,7 +48,7 @@ public class GuildActions {
     public final static int list(CommandContext<CommandSourceStack> context) {
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         if(state.getGuilds().size()==0) {
             context.getSource().sendFailure(Component.translatable("no_faction_exist_alert"));
@@ -73,7 +73,7 @@ public class GuildActions {
     public final static int delete(CommandContext<CommandSourceStack> context) {
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         String guildName = StringArgumentType.getString(context, "name");
 
@@ -97,7 +97,7 @@ public class GuildActions {
     public final static int leave(CommandContext<CommandSourceStack> context) {
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         String guildName = StringArgumentType.getString(context, "name");
 
@@ -125,7 +125,7 @@ public class GuildActions {
     public final static int join(CommandContext<CommandSourceStack> context) {
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         String guildName = StringArgumentType.getString(context, "name");
 
@@ -152,7 +152,7 @@ public class GuildActions {
     public final static int invite(CommandContext<CommandSourceStack> context) {
         MinecraftServer server = context.getSource().getServer();
         ServerPlayer player = context.getSource().getPlayer();
-        GuildWorldState state = GuildWorldState.get(server);
+        FactionWorldState state = FactionWorldState.get(server);
 
         Faction faction = null;
         for(Faction g : state.getGuilds().values()) {

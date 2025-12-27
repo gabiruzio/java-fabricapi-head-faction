@@ -1,32 +1,32 @@
-package com.battlefactions;
+package com.battlefactions.event;
 
+import com.battlefactions.BattleFactionsMod;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.ambient.Bat;
 
 
-public class ChatListener {
+public class ChatEvent {
 
     public static void register() {
 
         ServerMessageEvents.ALLOW_CHAT_MESSAGE.register((message, player, b) -> {
 
-            // Ignora comandos
+            // Ignore commands
             if (message.signedContent().toString().startsWith("/")) {
-                return true; // permite comandos normais
+                return true;
             }
 
-            // Monta o texto sem o nome do player
+            // message
             Component text = Component.literal(message.signedContent().toString());
 
-            // Envia para cada jogador
+            // send
             for (ServerPlayer p : player.level().getServer().getPlayerList().getPlayers()) {
                 BattleFactionsMod.LOGGER.info("chat abaixo");
                 p.sendSystemMessage(text, false);
             }
 
-            // Retorna false para impedir o broadcast padrão
+
             return false;
         });
     }

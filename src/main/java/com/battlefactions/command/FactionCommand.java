@@ -1,6 +1,6 @@
 package com.battlefactions.command;
 
-import com.battlefactions.world.data.GuildActions;
+import com.battlefactions.world.data.FactionActions;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -20,36 +20,36 @@ public class FactionCommand {
                     Commands.literal("faction")
                     .then(Commands.literal("create")
                            .then(Commands.argument("name", StringArgumentType.greedyString())
-                                   .executes(GuildActions::create))));
+                                   .executes(FactionActions::create))));
 
             dispatcher.register(
                     Commands.literal("faction")
-                    .then(Commands.literal("list").executes(GuildActions::list))
+                    .then(Commands.literal("list").executes(FactionActions::list))
             );
 
             dispatcher.register(
                 Commands.literal("faction")
                         .then(Commands.literal("delete")
-                                .then(Commands.argument("name", StringArgumentType.greedyString()).executes(GuildActions::delete))
+                                .then(Commands.argument("name", StringArgumentType.greedyString()).executes(FactionActions::delete))
             ));
 
             dispatcher.register(
                     Commands.literal("faction")
                             .then(Commands.literal("leave")
-                                    .then(Commands.argument("name", StringArgumentType.greedyString()).executes(GuildActions::leave))
+                                    .then(Commands.argument("name", StringArgumentType.greedyString()).executes(FactionActions::leave))
             ));
 
             dispatcher.register(
                     Commands.literal("faction")
                             .then(Commands.literal("join")
-                                    .then(Commands.argument("name", StringArgumentType.greedyString()).executes(GuildActions::join))
+                                    .then(Commands.argument("name", StringArgumentType.greedyString()).executes(FactionActions::join))
             ));
 
             dispatcher.register(
                     Commands.literal("faction")
                             .then(Commands.literal("invite")
                                     .then(Commands.argument("player_name", EntityArgument.player())
-                                            .executes(GuildActions::invite))));
+                                            .executes(FactionActions::invite))));
 
         });
 

@@ -3,6 +3,7 @@ package com.battlefactions.world.data;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ public class Faction {
     private ArrayList<String> members;
     private ArrayList<String> invited;
     private String owner;
+    private BlockPos flagPos;
 
     public static final Codec<Faction> CODEC =
             RecordCodecBuilder.create(instance ->
@@ -28,14 +30,19 @@ public class Faction {
                                      .forGetter(Faction::getInvited),
 
                             Codec.STRING.fieldOf("owner")
-                                    .forGetter(Faction::getOwner)
+                                    .forGetter(Faction::getOwner),
 
-                    ).apply(instance, (name, members, invited, owner) -> {
+                            BlockPos.CODEC.fieldOf("flagPos")
+                                    .forGetter(Faction::getFlagPos)
+
+
+                    ).apply(instance, (name, members, invited, owner, flagPos) -> {
                         Faction f = new Faction();
                         f.name = name;
                         f.invited = new ArrayList<>(invited);
                         f.members = new ArrayList<>(members); // SEM CAST
                         f.owner = owner;
+                        f.flagPos = flagPos;
                         return f;
                     })
             );
@@ -73,8 +80,8 @@ public class Faction {
         this.name = name;
     }
 
-    //public String getFlagPos() {return flagPos; }
-    //public void setFlagPos(BlockPos pos) {this.flagPos = pos.toString(); }
+    public BlockPos getFlagPos() {return flagPos; }
+    public void setFlagPos(BlockPos pos) {this.flagPos = pos; }
 
 
 
