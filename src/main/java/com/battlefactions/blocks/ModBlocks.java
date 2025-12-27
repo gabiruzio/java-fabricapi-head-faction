@@ -70,7 +70,6 @@ public class ModBlocks {
             BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .strength(2.0f)
-
                     .sound(SoundType.WOOL)
                     .lightLevel(state -> 12),
             true

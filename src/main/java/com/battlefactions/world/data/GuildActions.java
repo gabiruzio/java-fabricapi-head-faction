@@ -1,6 +1,5 @@
-package com.battlefactions;
+package com.battlefactions.world.data;
 
-import com.battlefactions.guild.Guild;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -27,22 +26,21 @@ public class GuildActions {
         }
 
         // verifico se o player já esta em uma guild
-        for(Guild g : state.getGuilds().values()) {
+        for(Faction g : state.getGuilds().values()) {
             if (g.getMembers().contains(player.getName().getString())) {
                 context.getSource().sendFailure(Component.translatable("already_stay_in_faction_alert", guildName));
                 return 0;
             }
         }
 
-        Guild guild = new Guild();
-        guild.setName(guildName);
-        guild.getMembers().add(player.getName().getString());
-        guild.setOwner(player.getName().getString());
+        Faction faction = new Faction();
+        faction.setName(guildName);
+        faction.getMembers().add(player.getName().getString());
+        faction.setOwner(player.getName().getString());
 
-        state.addGuild(guildName, guild);
+        state.addGuild(guildName, faction);
 
-        context.getSource().sendSuccess(() -> Component.literal("faction_create_alert"), false);
-        context.getSource().sendSuccess(() -> Component.literal("guild successfully created"), false);
+        context.getSource().sendSuccess(() -> Component.translatable("faction_create_alert"), false);
 
         return 1;
     }
@@ -62,7 +60,7 @@ public class GuildActions {
                 false
         );
 
-        for(Guild g : state.getGuilds().values()) {
+        for(Faction g : state.getGuilds().values()) {
             context.getSource().sendSuccess(
                     () -> Component.literal(g.getName()),
                     false
@@ -79,7 +77,7 @@ public class GuildActions {
 
         String guildName = StringArgumentType.getString(context, "name");
 
-        for(Guild g : state.getGuilds().values()) {
+        for(Faction g : state.getGuilds().values()) {
             if(!g.getName().equals(guildName)) {
                 continue;
             }
@@ -103,7 +101,7 @@ public class GuildActions {
 
         String guildName = StringArgumentType.getString(context, "name");
 
-        for(Guild g : state.getGuilds().values()) {
+        for(Faction g : state.getGuilds().values()) {
             if(!g.getName().equals(guildName)) {
                 continue;
             }
@@ -114,7 +112,7 @@ public class GuildActions {
 
             state.getGuilds().remove(guildName);
             context.getSource().sendSuccess(
-                    () -> Component.literal("you leave the guild " + guildName + "!"),
+                    () -> Component.translatable("leave_faction_alert").append(Component.literal( ": " + guildName)),
                     false
             );
             state.setDirty();
@@ -132,7 +130,7 @@ public class GuildActions {
         String guildName = StringArgumentType.getString(context, "name");
 
         if(state.getGuilds().containsKey(guildName)) {
-            Guild g = state.getGuilds().get(guildName);
+            Faction g = state.getGuilds().get(guildName);
             if(g.getInvited().contains(player.getName().getString())) {
                 g.getInvited().remove(player.getName().getString());
                 g.getMembers().add(player.getName().getString());
@@ -143,10 +141,11 @@ public class GuildActions {
 
                 return 1;
             }
-            context.getSource().sendFailure(Component.translatable("invite_not_found_alert", guildName));
+            context.getSource().sendFailure(Component.translatable("invite_not_found_alert").append(Component.literal( ": " + guildName)));
             return 0;
         }
-        context.getSource().sendFailure(Component.translatable("faction_not_found_alert", guildName));
+        context.getSource().sendFailure(Component.translatable("faction_not_found_alert").append(Component.literal( ": " + guildName)));
+
         return 0;
     }
 
@@ -155,15 +154,15 @@ public class GuildActions {
         ServerPlayer player = context.getSource().getPlayer();
         GuildWorldState state = GuildWorldState.get(server);
 
-        Guild guild = null;
-        for(Guild g : state.getGuilds().values()) {
+        Faction faction = null;
+        for(Faction g : state.getGuilds().values()) {
             if(g.getOwner().equals(player.getName().getString())) {
-                guild = g;
+                faction = g;
                 break;
             }
         }
 
-        if(guild == null) {
+        if(faction == null) {
             context.getSource().sendFailure(Component.translatable("need_be_factions_owner_alert"));
             return 0;
         }
@@ -173,17 +172,17 @@ public class GuildActions {
             ServerPlayer playerInvited = EntityArgument.getPlayer(context, "player_name");
             String playerInvitedName = playerInvited.getName().getString();
 
-            if(guild.getMembers().contains(playerInvitedName)) {
-                context.getSource().sendFailure(Component.translatable(playerInvitedName + " already are member of this guild!"));
+            if(faction.getMembers().contains(playerInvitedName)) {
+                context.getSource().sendFailure(Component.literal(playerInvitedName + ": ").append(Component.translatable("already_stay_in_faction_alert")));
                 return 0;
             }
 
-            if(guild.getInvited().contains(playerInvitedName)) {
-                context.getSource().sendFailure(Component.translatable(playerInvitedName + "already invited"));
+            if(faction.getInvited().contains(playerInvitedName)) {
+                context.getSource().sendFailure(Component.literal(playerInvited + ": ").append(Component.translatable("already_invited_alert")));
                 return 0;
             }
 
-            guild.getInvited().add(playerInvitedName);
+            faction.getInvited().add(playerInvitedName);
             state.setDirty();
 
             context.getSource().sendSuccess(

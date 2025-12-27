@@ -1,6 +1,5 @@
-package com.battlefactions;
+package com.battlefactions.world.data;
 
-import com.battlefactions.guild.Guild;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.server.MinecraftServer;
@@ -13,14 +12,14 @@ import java.util.Map;
 
 public class GuildWorldState extends SavedData {
 
-    private final Map<String, Guild> guilds = new HashMap<>();
+    private final Map<String, Faction> guilds = new HashMap<>();
 
     public static final Codec<GuildWorldState> CODEC =
             RecordCodecBuilder.create(instance ->
                 instance.group(
                     Codec.unboundedMap(
                             Codec.STRING,
-                            Guild.CODEC
+                            Faction.CODEC
                     )
                     .fieldOf("guild_data")
                     .forGetter(GuildWorldState::getGuilds)
@@ -39,7 +38,7 @@ public class GuildWorldState extends SavedData {
     );
 
     // get
-    public Map<String, Guild> getGuilds() {
+    public Map<String, Faction> getGuilds() {
         return guilds;
     }
 
@@ -55,8 +54,8 @@ public class GuildWorldState extends SavedData {
     }
 
     // mod
-    public void addGuild(String name, Guild guild) {
-        guilds.put(name, guild);
+    public void addGuild(String name, Faction faction) {
+        guilds.put(name, faction);
         setDirty();
     }
 }

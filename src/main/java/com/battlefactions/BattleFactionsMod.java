@@ -3,18 +3,18 @@ package com.battlefactions;
 import com.battlefactions.attributes.ModAttributes;
 import com.battlefactions.block_entitys.ModBlockEntities;
 import com.battlefactions.blocks.ModBlocks;
-import com.battlefactions.command.GuildCommand;
+import com.battlefactions.command.FactionCommand;
 import com.battlefactions.creative.CreativeTab;
 import com.battlefactions.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +44,9 @@ public class BattleFactionsMod implements ModInitializer {
 		ModAttributes.initialize();
 		CreativeTab.inicialize();
 
-		GuildCommand.register();
+		FactionCommand.register();
+
+		ChatListener.register();
 
 
 		ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
@@ -70,6 +72,9 @@ public class BattleFactionsMod implements ModInitializer {
 
 			//}
 		});
+
+
+
 
 
 

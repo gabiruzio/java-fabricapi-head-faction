@@ -31,8 +31,11 @@
 
   "faction_already_exist_alert": "Faction already exist",
   "already_stay_in_faction_alert": "You're already in one Faction",
+  "leave_faction_alert": "You leave the faction",
+  "already_invited_alert": "Player already invited",
   "faction_create_alert": "Create the faction was successfully",
   "no_faction_exist_alert": "This Faction not exist",
+  "faction_create_alert": "Faction successfully created!",
   "factions_delete_alert": "This faction has been successfully deleted!",
   "need_be_factions_owner_alert": "Only the faction owner can do that",
   "faction_not_found_alert": "Faction not found",

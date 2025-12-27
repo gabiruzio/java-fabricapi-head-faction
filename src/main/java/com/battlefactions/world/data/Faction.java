@@ -1,44 +1,46 @@
-package com.battlefactions.guild;
+package com.battlefactions.world.data;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.BlockPos;
 
 import java.util.ArrayList;
 
-public class Guild {
+public class Faction {
 
     private String name;
     private ArrayList<String> members;
     private ArrayList<String> invited;
     private String owner;
 
-    public static final Codec<Guild> CODEC =
+    public static final Codec<Faction> CODEC =
             RecordCodecBuilder.create(instance ->
                     instance.group(
                             Codec.STRING.fieldOf("name")
-                                    .forGetter(Guild::getName),
+                                    .forGetter(Faction::getName),
 
                             Codec.list(Codec.STRING)
                                     .fieldOf("members")
-                                    .forGetter(Guild::getMembers),
+                                    .forGetter(Faction::getMembers),
 
                             Codec.list(Codec.STRING)
                                      .fieldOf("invited")
-                                     .forGetter(Guild::getInvited),
+                                     .forGetter(Faction::getInvited),
 
                             Codec.STRING.fieldOf("owner")
-                                    .forGetter(Guild::getOwner)
+                                    .forGetter(Faction::getOwner)
+
                     ).apply(instance, (name, members, invited, owner) -> {
-                        Guild g = new Guild();
-                        g.name = name;
-                        g.invited = new ArrayList<>(invited);
-                        g.members = new ArrayList<>(members); // SEM CAST
-                        g.owner = owner;
-                        return g;
+                        Faction f = new Faction();
+                        f.name = name;
+                        f.invited = new ArrayList<>(invited);
+                        f.members = new ArrayList<>(members); // SEM CAST
+                        f.owner = owner;
+                        return f;
                     })
             );
 
-    public Guild() {
+    public Faction() {
         members = new ArrayList<>();
         invited = new ArrayList<>();
     }
@@ -46,7 +48,6 @@ public class Guild {
     public String getOwner() {
         return owner;
     }
-
     public void setOwner(String owner) {
         this.owner = owner;
     }
@@ -54,7 +55,6 @@ public class Guild {
     public ArrayList<String> getMembers() {
         return members;
     }
-
     public void setMembers(ArrayList<String> members) {
         this.members = members;
     }
@@ -62,7 +62,6 @@ public class Guild {
     public ArrayList<String> getInvited() {
         return invited;
     }
-
     public void setInvited(ArrayList<String> invited) {
         this.invited = invited;
     }
@@ -70,9 +69,14 @@ public class Guild {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
+
+    //public String getFlagPos() {return flagPos; }
+    //public void setFlagPos(BlockPos pos) {this.flagPos = pos.toString(); }
+
+
+
 }
 

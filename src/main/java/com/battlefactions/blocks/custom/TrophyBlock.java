@@ -1,6 +1,5 @@
 package com.battlefactions.blocks.custom;
 
-import com.battlefactions.block_entitys.custom.TrophyBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
