@@ -56,6 +56,7 @@ public class CreativeTab {
             itemGroup.accept(ModBlocks.VICTORY_SYMBOL_BLOCK);
             itemGroup.accept(ModBlocks.SHAME_SYMBOL_BLOCK);
             itemGroup.accept(ModBlocks.FLAG_BLOCK);
+            itemGroup.accept(ModBlocks.DEBUG_BLOCK);
         });
 
         // Add items a exist minecraft tab

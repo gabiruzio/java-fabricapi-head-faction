@@ -1,5 +1,6 @@
 package com.battlefactions.world.data;
 
+import com.battlefactions.attachments.FactionAttachment;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -8,6 +9,8 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.players.PlayerList;
+import net.minecraft.world.entity.player.Player;
 
 public class FactionActions {
 
@@ -41,6 +44,9 @@ public class FactionActions {
         state.addGuild(guildName, faction);
 
         context.getSource().sendSuccess(() -> Component.translatable("faction_create_alert"), false);
+
+        // Change player data
+        FactionAttachment.get(context.getSource().getPlayer()).setCurrentFaction(guildName);
 
         return 1;
     }
@@ -84,6 +90,20 @@ public class FactionActions {
             if(g.getOwner().equals(player.getName().getString())) {
                 context.getSource().sendFailure(Component.translatable("factions_delete_alert", guildName));
                 state.getGuilds().remove(guildName);
+
+                // Update all player data server
+                for (String m : g.getMembers()){
+                    for (ServerPlayer p : server.getPlayerList().getPlayers()){
+                        if (m.equals(p.getName().getString())){
+                            FactionAttachment.get(p).setCurrentFaction("");
+                        }
+
+                    }
+                }
+
+                // Remove inside player data
+                FactionAttachment.get(context.getSource().getPlayer()).setCurrentFaction("");
+
                 state.setDirty();
                 return 1;
             }
@@ -115,6 +135,20 @@ public class FactionActions {
                     () -> Component.translatable("leave_faction_alert").append(Component.literal( ": " + guildName)),
                     false
             );
+
+            // Update all player data server
+            for (String m : g.getMembers()){
+                for (ServerPlayer p : server.getPlayerList().getPlayers()){
+                    if (m.equals(p.getName().getString())){
+                        FactionAttachment.get(p).setCurrentFaction("");
+                    }
+
+                }
+            }
+
+            // Remove inside player data
+            FactionAttachment.get(context.getSource().getPlayer()).setCurrentFaction("");
+
             state.setDirty();
             return 1;
         }
@@ -138,7 +172,7 @@ public class FactionActions {
                 state.setDirty();
                 context.getSource().sendSuccess(
                         () -> Component.literal("you join!"), false);
-
+                FactionAttachment.get(context.getSource().getPlayer()).setCurrentFaction(guildName);
                 return 1;
             }
             context.getSource().sendFailure(Component.translatable("invite_not_found_alert").append(Component.literal( ": " + guildName)));

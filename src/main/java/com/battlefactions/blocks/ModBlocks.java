@@ -1,10 +1,7 @@
 package com.battlefactions.blocks;
 
 import com.battlefactions.BattleFactionsMod;
-import com.battlefactions.blocks.custom.FlagBlock;
-import com.battlefactions.blocks.custom.ShameSymbolBlock;
-import com.battlefactions.blocks.custom.TrophyBlock;
-import com.battlefactions.blocks.custom.VictorySymbolBlock;
+import com.battlefactions.blocks.custom.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -70,10 +67,21 @@ public class ModBlocks {
             BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .strength(2.0f)
-                    .sound(SoundType.WOOL)
-                    .lightLevel(state -> 12),
+                    .lightLevel(state -> 12)
+                    .sound(SoundType.WOOL),
             true
     );
+
+    public static final Block DEBUG_BLOCK = register(
+            "debug_block",
+            DebugBlock::new,
+            BlockBehaviour.Properties.of()
+                    .instabreak()
+                    .sound(SoundType.ANCIENT_DEBRIS),
+            true
+    );
+
+
 
 
 

@@ -42,6 +42,8 @@
   "not_member_faction_alert": "There are no members in the faction ",
   "invite_not_found_alert": "Invite not found",
   "player_not_found_alert": "Player not found",
+  "other_faction_owner_alert": "§4Other Faction is owner!!!",
+  "not_in_faction_alert": "You are not in a faction!",
 
 
   "new_owner_flag_alert": "Now you own the flag",

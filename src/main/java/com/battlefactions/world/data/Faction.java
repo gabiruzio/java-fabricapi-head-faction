@@ -13,7 +13,7 @@ public class Faction {
     private ArrayList<String> members;
     private ArrayList<String> invited;
     private String owner;
-    private BlockPos flagPos;
+    private BlockPos flagPos = BlockPos.ZERO;
 
     public static final Codec<Faction> CODEC =
             RecordCodecBuilder.create(instance ->
@@ -82,8 +82,6 @@ public class Faction {
 
     public BlockPos getFlagPos() {return flagPos; }
     public void setFlagPos(BlockPos pos) {this.flagPos = pos; }
-
-
 
 }
 

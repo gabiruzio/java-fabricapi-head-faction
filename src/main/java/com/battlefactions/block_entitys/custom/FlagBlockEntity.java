@@ -1,6 +1,7 @@
 package com.battlefactions.block_entitys.custom;
 
 import com.battlefactions.BattleFactionsMod;
+import com.battlefactions.attachments.FactionAttachment;
 import com.battlefactions.block_entitys.ModBlockEntities;
 import com.mojang.util.UUIDTypeAdapter;
 import net.minecraft.core.BlockPos;
@@ -29,48 +30,56 @@ public class FlagBlockEntity extends BlockEntity {
         super(ModBlockEntities.FLAG_BLOCK_ENTITY, blockPos, blockState);
     }
 
-    private String ownerUuid;
+    private String factionOwner;
 
 
-    public void setOwner(UUID playerUuid){
-        ownerUuid = playerUuid.toString();
+    public void setOwner(String guildName){
+        factionOwner = guildName;
         setChanged();
     }
 
     public String getOwner() {
-        return ownerUuid;
+        return factionOwner;
     }
 
 
     public InteractionResult interaction(Player player){
 
-        player.displayClientMessage(Component.literal("Player: " + player.getUUID()) , false);
+        String current_faction = FactionAttachment.get(player).getCurrentFaction();
 
-        if(getOwner() == null || getOwner().isEmpty()){
-            setOwner(player.getUUID());
-            player.displayClientMessage(Component.translatable("new_owner_flag_alert"), false);
-            return InteractionResult.SUCCESS;
+        //player.displayClientMessage(Component.literal(current_faction), false);
+
+        if (!current_faction.isEmpty()){
+            if(getOwner().isEmpty()){
+                setOwner(current_faction);
+                player.displayClientMessage(Component.translatable("new_owner_flag_alert"), false);
+                return InteractionResult.SUCCESS;
+            }
+            else{
+                if (getOwner().equals(current_faction)){
+                    player.displayClientMessage(Component.translatable("already_owner_flag_alert"), false);
+                    return InteractionResult.FAIL;
+                }
+                else{
+                    player.displayClientMessage(Component.translatable("other_faction_owner_alert"), false);
+                    return InteractionResult.FAIL;
+                }
+            }
         }
-        else if (getOwner().equals(player.getUUID().toString())){
-            player.displayClientMessage(Component.translatable("already_owner_flag_alert"), false);
-            player.displayClientMessage(Component.literal(getOwner().toString()) , false);
+        else {
+            player.displayClientMessage(Component.translatable("not_in_faction_alert"), false);
             return InteractionResult.FAIL;
         }
-        else if (!getOwner().equals(player.getUUID().toString()) ){
-            player.displayClientMessage(Component.translatable("Outro player e dono"), false);
-            player.displayClientMessage(Component.literal(getOwner().toString()) , false);
-            return InteractionResult.FAIL;
-        }
 
 
-        return InteractionResult.FAIL;
+
     }
 
 
     @Override
     protected void saveAdditional(ValueOutput writeView) {
-        if (ownerUuid != null){
-            writeView.putString("ownerUuid", ownerUuid);
+        if (factionOwner != null){
+            writeView.putString("factionOwner", factionOwner);
         }
 
         super.saveAdditional(writeView);
@@ -81,12 +90,12 @@ public class FlagBlockEntity extends BlockEntity {
     protected void loadAdditional(ValueInput readView) {
         super.loadAdditional(readView);
 
-        String u = readView.getStringOr("ownerUuid", "");
+        String u = readView.getStringOr("factionOwner", "");
 
         if (!u.isEmpty()) {
-            ownerUuid = u;
+            factionOwner = u;
         } else {
-            ownerUuid = null;
+            factionOwner = "";
         }
 
     }
