@@ -8,9 +8,9 @@
 
   "block.battlefactions.test_block": "Test Block",
   "block.battlefactions.trophy_block": "§6Trophy",
-  "block.battlefactions.victory_symbol_block": "§bVictory Symbol",
+  "block.battlefactions.victory_symbol_block": "§6Victory Symbol",
   "block.battlefactions.shame_symbol_block": "§4Shame Symbol",
-  "block.battlefactions.flag": "Flag",
+  "block.battlefactions.flag_block": "§bFlag",
 
 
   "attribute.name.battlefactions.test_attribute": "Test Attribute",
@@ -38,6 +38,10 @@
   "faction_not_found_alert": "Faction not found",
   "not_member_faction_alert": "There are no members in the faction ",
   "invite_not_found_alert": "Invite not found",
-  "player_not_found_alert": "Player not found"
+  "player_not_found_alert": "Player not found",
+
+
+  "new_owner_flag_alert": "Now you own the flag",
+  "already_owner_flag_alert": "You already is owner of flag"
 
 }

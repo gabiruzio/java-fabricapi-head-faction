@@ -1,7 +1,7 @@
 package com.battlefactions.block_entitys;
 
 import com.battlefactions.BattleFactionsMod;
-import com.battlefactions.block_entitys.custom.TrophyBlockEntity;
+import com.battlefactions.block_entitys.custom.FlagBlockEntity;
 import com.battlefactions.block_entitys.custom.VictorySymbolBlockEntity;
 import com.battlefactions.blocks.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -14,11 +14,12 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModBlockEntities {
 
-    public static final BlockEntityType<TrophyBlockEntity> TROPHY_BLOCK_ENTITY =
-            register("trophy", TrophyBlockEntity::new, ModBlocks.TROPHY_BLOCK);
 
     public static final BlockEntityType<VictorySymbolBlockEntity> VICTORY_SYMBOL_BLOCK_ENTITY =
             register("victory_symbol", VictorySymbolBlockEntity::new, ModBlocks.VICTORY_SYMBOL_BLOCK);
+
+    public static final BlockEntityType<FlagBlockEntity> FLAG_BLOCK_ENTITY =
+            register("flag", FlagBlockEntity::new, ModBlocks.FLAG_BLOCK);
 
 
 

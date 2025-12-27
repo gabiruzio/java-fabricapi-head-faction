@@ -20,7 +20,7 @@ public class CreativeTab {
     public static final ResourceKey<CreativeModeTab> CUSTOM_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(BattleFactionsMod.MOD_ID, "item_group"));
 
     public static final CreativeModeTab CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(Blocks.PLAYER_HEAD))
+            .icon(() -> new ItemStack(ModBlocks.FLAG_BLOCK))
             //.icon(() -> new ItemStack(ModBlocks.TROPHY2))
             .title(Component.translatable("itemGroup.battlefactions"))
             .build();
@@ -35,9 +35,8 @@ public class CreativeTab {
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.accept(ModItems.TEST_ITEM);
             itemGroup.accept(ModBlocks.TEST_BLOCK);
-            itemGroup.accept(ModItems.CUCUMBER);
-            itemGroup.accept(ModBlocks.FLAG);
 
+            itemGroup.accept(ModItems.CUCUMBER);
 
             itemGroup.accept(ModItems.REINFORCED_OBSIDIAN_INGOT);
 
@@ -56,6 +55,7 @@ public class CreativeTab {
             itemGroup.accept(ModBlocks.TROPHY_BLOCK);
             itemGroup.accept(ModBlocks.VICTORY_SYMBOL_BLOCK);
             itemGroup.accept(ModBlocks.SHAME_SYMBOL_BLOCK);
+            itemGroup.accept(ModBlocks.FLAG_BLOCK);
         });
 
         // Add items a exist minecraft tab
